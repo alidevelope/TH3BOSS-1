@@ -3053,7 +3053,7 @@ if ((matches[1] == 'newlink' and not Clang) or (matches[1] == 'تغير الرا
        if not lang then
        return tdcli.sendMessage(msg.to.id, msg.id, 1, "🌟| _Bot is not group creator_\n🌟| _set a link for group with using_  🌟|setlink"..msg_caption, 1, 'md')
        elseif lang then
-       return tdcli.sendMessage(msg.to.id, msg.id, 1, "*البوت ليس منشئ المجموعة قم بأضافة الرابط بأرسال* [ ضع رابط ]", 1, 'md')
+       return tdcli.sendMessage(msg.to.id, msg.id, 1, "*البوت ليس منشئ الم��موعة قم بأضافة الرابط بأرسال* [ ضع رابط ]", 1, 'md')
     end
 				else
 					administration[tostring(msg.to.id)]['settings']['linkgp'] = data.invite_link_
@@ -4006,3 +4006,4 @@ pre_process = pre_process
 -- ALL TH3 BEST 
 -- WE ARE FAMILY
 -- V 15
+end
