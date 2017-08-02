@@ -26,7 +26,7 @@ install() {
 
 function print_logo() {
 	green " "
-	green "                  ____ _____ _   _ _____ ____   ___  ____ ____  
+	green "   ____ _____ _   _ _____ ____   ___  ____ ____  
                  / __ \_   _| | | |___ /| __ ) / _ \/ ___/ ___| 
                 / / _  || | | |_| | |_ \|  _ \| | | \___ \___ \ 
                | | (_| || | |  _  |___) | |_) | |_| |___) |__) |
@@ -41,7 +41,7 @@ function logo_play() {
     declare -A txtlogo
     seconds="0.010"
     txtlogo[1]=" "
-    txtlogo[2]="           ____ _____ _   _ _____ ____   ___  ____ ____  
+    txtlogo[2]="  ____ _____ _   _ _____ ____   ___  ____ ____  
                  / __ \_   _| | | |___ /| __ ) / _ \/ ___/ ___| 
                 / / _  || | | |_| | |_ \|  _ \| | | \___ \___ \ 
                | | (_| || | |  _  |___) | |_) | |_| |___) |__) |
@@ -63,13 +63,12 @@ function logo_play() {
 
 function th3boss() {
 	echo -e "\e[0m"
-	  red "     >>>>                       ??| We Are Not Attacker                             "
-	  red "     >>>>                       ??| We Are Not Alliance                             "
-	white "     >>>>                       ??| We Are Programmer                               "
-	green "     >>>>                       ??| We Are The Best                                 "
-	white "     >>>>                       ??| We Are Family                                   "
-	green "     >>>>                       ??| @TH3BOSS                                        "
-	green "     >>>>                       ??| @lldev1ll                                       "
+	  red "     >>>>                       🌟| We Are Not Attacker                             "
+        green "     >>>>                       🌟| We Are Not Alliance                             "
+	white "     >>>>                       🌟| We Are Programmer                               "
+	white "     >>>>                       🌟| We Are The Best                                 "
+	  red "     >>>>                       🌟| We Are Family                                   "
+	  red "     >>>>                       🌟| @lldev1ll                                       "
 	echo -e "\e[0m"
 }
 
