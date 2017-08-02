@@ -477,9 +477,10 @@ return
 else
    del_msg(chat, msg.id)
     kick_user(user, chat)
-   tdcli.sendMessage(chat, msg.id, 0, "🌟| _User_ : "..user_name.."\n 🌟| _ID_ : `["..user.."]` \n📌 _Kicked out Becouse He  Flooding ☑️_\n 🌟| مـطـور الـسـورس : الزعـيـم > @TH3BOSS", 0, "md")
+       if not lang then
+   tdcli.sendMessage(chat, msg.id, 0, "🌟| _User_ : "..user_name.."\n 🌟| _ID_ : `["..user.."]` \n🌟| _Kicked out Becouse He  Flooding ☑️_\n 🌟| مـطـور الـسـورس : الزعـيـم > @TH3BOSS", 0, "md")
    elseif lang then
-  tdcli.sendMessage(chat, msg.id, 0, "_🌟| العضو_ :  "..user_name.."\n _🌟|الايدي_ : `["..user.."]`\n _📌 عذرا ممنوع التكرار في هذه المجموعه لقد تم طردك ☑️_\n 🌟| مـطـور الـسـورس : الزعـيـم > @TH3BOSS", 0, "md")
+  tdcli.sendMessage(chat, msg.id, 0, "_🌟| العضو_ :  "..user_name.."\n _🌟|الايدي_ : `["..user.."]`\n _🌟| عذرا ممنوع التكرار في هذه المجموعه لقد تم طردك ☑️_\n 🌟| مـطـور الـسـورس : الزعـيـم > @TH3BOSS", 0, "md")
     end
 redis:setex('sender:'..user..':flood', 30, true)
       end
