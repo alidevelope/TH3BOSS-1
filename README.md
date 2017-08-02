@@ -22,11 +22,11 @@
 ```sh
 # Let's install the bot.
 cd $HOME
-git clone https://github.com/BeyondTeam/BDReborn.git
-cd BDReborn
-chmod +x beyond.sh
-./beyond.sh install
-./beyond.sh 
+git clone https://github.com/moody2020/TH3BOSS.git
+cd TH3BOSS
+chmod +x TH3BOSS.sh
+./TH3BOSS.sh install
+./TH3BOSS.sh 
 # Enter a phone number & confirmation code.
 
 # For Auto Launch:
