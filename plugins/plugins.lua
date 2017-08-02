@@ -1,5 +1,14 @@
+--[[ 
+▀▄ ▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀▄▀▄▄▀▀▄▄▀▀▄▄▀▀▄▄▀▀          
+▀▄ ▄▀                                      ▀▄ ▄▀ 
+▀▄ ▄▀    BY MOHAMMED HISHAM                ▀▄ ▄▀ 
+▀▄ ▄▀   BY MOHAMMEDHISHAM (@TH3BOSS)      ▀▄ ▄▀ 
+▀▄ ▄▀ JUST WRITED BY MOHAMMED HISHAM       ▀▄ ▄▀   
+▀▄ ▄▀   plugins   :   تفعيل الملفات       ▀▄ ▄▀ 
+▀▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀▄▄▀▀▄▄▀▄▄▀▀
+--]]
 do
--- #Begin plugins.lua by @BeyondTeam
+
 -- Returns the key (index) in the config.enabled_plugins table
 local function plugin_enabled( name )
   for k,v in pairs(_config.enabled_plugins) do
@@ -21,71 +30,69 @@ local function plugin_exists( name )
   return false
 end
 
-local function list_all_plugins(only_enabled, msg)
-  local tmp = '\n'..msg_caption
+local function list_all_plugins(only_enabled)
   local text = ''
   local nsum = 0
   for k, v in pairs( plugins_names( )) do
     --  ✔ enabled, ❌ disabled
-    local status = '|✖️|>'
+    local status = '❌'
     nsum = nsum+1
     nact = 0
     -- Check if is enabled
     for k2, v2 in pairs(_config.enabled_plugins) do
       if v == v2..'.lua' then 
-        status = '|✔|>'
+        status = '☑️' 
       end
       nact = nact+1
     end
-    if not only_enabled or status == '|✔|>'then
+    if not only_enabled or status == '☑️' then
       -- get the name
       v = string.match (v, "(.*)%.lua")
-      text = text..nsum..'.'..status..' '..v..' \n'
+      text = text..nsum..'. '..v..'  '..status..'\n'
     end
   end
-  text = '<code>'..text..'</code>\n\n'..nsum..' <b>📂plugins installed</b>\n\n'..nact..' <i>✔️plugins enabled</i>\n\n'..nsum-nact..' <i>❌plugins disabled</i>'..tmp
-  tdcli.sendMessage(msg.to.id, msg.id_, 1, text, 1, 'html')
+  local text = text..'\n الملفات المثبته 🔨. '..nsum..'\nالملفات المفعله ☑️.'..nact..'\nغير مفعل 🚫 '..nsum-nact..''
+  return text
 end
 
-local function list_plugins(only_enabled, msg)
+
+local function list_plugins(only_enabled)
   local text = ''
   local nsum = 0
   for k, v in pairs( plugins_names( )) do
-    --  ✔ enabled, ❌ disabled
-    local status = '*|✖️|>*'
+    --  ☑️ enabled, ❌ disabled
+    local status = '❌'
     nsum = nsum+1
     nact = 0
     -- Check if is enabled
     for k2, v2 in pairs(_config.enabled_plugins) do
       if v == v2..'.lua' then 
-        status = '*|✔|>*'
+        status = '☑️' 
       end
       nact = nact+1
     end
-    if not only_enabled or status == '*|✔|>*'then
+    if not only_enabled or status == '☑️' then
       -- get the name
       v = string.match (v, "(.*)%.lua")
-     -- text = text..v..'  '..status..'\n'
+      text = text..v..'  '..status..'\n'
     end
   end
-  text = "\n_🔃All Plugins Reloaded_\n\n"..nact.." *✔️Plugins Enabled*\n"..nsum.." *📂Plugins Installed*\n"..msg_caption
-  tdcli.sendMessage(msg.to.id, msg.id_, 1, text, 1, 'md')
+  local text = text..'\n'..nact..' plugins enabled from '..nsum..' plugins installed.'
+  return text
 end
 
-local function reload_plugins(checks, msg)
+local function reload_plugins( )
   plugins = {}
   load_plugins()
-  return list_plugins(true, msg)
+  return list_plugins(true)
 end
 
 
-local function enable_plugin( plugin_name, msg )
+local function enable_plugin( plugin_name )
   print('checking if '..plugin_name..' exists')
   -- Check if plugin is enabled
   if plugin_enabled(plugin_name) then
-    local text = '<b>'..plugin_name..'</b> <i>is enabled.</i>'
-	tdcli.sendMessage(msg.to.id, msg.id_, 1, text, 1, 'html')
-	return
+    return 'الـمـلـف 📙 '..plugin_name..' مـفـعـل 👍🏻 ☑️'
   end
   -- Checks if plugin exists
   if plugin_exists(plugin_name) then
@@ -94,36 +101,31 @@ local function enable_plugin( plugin_name, msg )
     print(plugin_name..' added to _config table')
     save_config()
     -- Reload the plugins
-    return reload_plugins(true, msg)
+    return reload_plugins( )
   else
-    local text = '<b>'..plugin_name..'</b> <i>does not exists.</i>'
-	tdcli.sendMessage(msg.to.id, msg.id_, 1, text, 1, 'html')
+    return ''..plugin_name..' ✋🏿لا يـوجـد مـلـف 📙 بـاسـم '
   end
 end
 
-local function disable_plugin( name, msg )
+local function disable_plugin( name, chat )
+  -- Check if plugins exists
+  if not plugin_exists(name) then
+    return ''..name..' ✋🏿لا يـوجـد مـلـف 📙 بـاسـم '
+  end
   local k = plugin_enabled(name)
   -- Check if plugin is enabled
   if not k then
-    local text = '<b>'..name..'</b> <i>not enabled.</i>'
-	tdcli.sendMessage(msg.to.id, msg.id_, 1, text, 1, 'html')
-	return
+    return 'اَلـَمِلفَ 📙 '..name..' غـيـر مـفـعـل 👍🏻 ❌'
   end
-  -- Check if plugins exists
-  if not plugin_exists(name) then
-    local text = '<b>'..name..'</b> <i>does not exists.</i>'
-	tdcli.sendMessage(msg.to.id, msg.id_, 1, text, 1, 'html')
-  else
   -- Disable and reload
   table.remove(_config.enabled_plugins, k)
   save_config( )
-  return reload_plugins(true, msg)
-end  
+  return reload_plugins(true)    
 end
 
-local function disable_plugin_on_chat(receiver, plugin, msg)
+local function disable_plugin_on_chat(receiver, plugin)
   if not plugin_exists(plugin) then
-    return "_Plugin doesn't exists_"
+    return "Plugin doesn't exists"
   end
 
   if not _config.disabled_plugin_on_chat then
@@ -137,11 +139,10 @@ local function disable_plugin_on_chat(receiver, plugin, msg)
   _config.disabled_plugin_on_chat[receiver][plugin] = true
 
   save_config()
-  local text = '<b>'..plugin..'</b> <i>disabled on this chat.</i>'
-  tdcli.sendMessage(msg.to.id, msg.id_, 1, text, 1, 'html')
+  return 'Plugin '..plugin..' disabled on this chat'
 end
 
-local function reenable_plugin_on_chat(receiver, plugin, msg)
+local function reenable_plugin_on_chat(receiver, plugin)
   if not _config.disabled_plugin_on_chat then
     return 'There aren\'t any disabled plugins'
   end
@@ -151,66 +152,55 @@ local function reenable_plugin_on_chat(receiver, plugin, msg)
   end
 
   if not _config.disabled_plugin_on_chat[receiver][plugin] then
-    return '_This plugin is not disabled_'
+    return 'This plugin is not disabled'
   end
 
   _config.disabled_plugin_on_chat[receiver][plugin] = false
   save_config()
-  local text = '<b>'..plugin..'</b> <i>is enabled again.</i>'
-  tdcli.sendMessage(msg.to.id, msg.id_, 1, text, 1, 'html')
+  return 'Plugin '..plugin..' is enabled again'
 end
 
 local function run(msg, matches)
-local Chash = "cmd_lang:"..msg.to.id
-local Clang = redis:get(Chash)
   -- Show the available plugins 
-  if is_sudo(msg) then
-  if (matches[1]:lower() == 'plist' and not Clang) or (matches[1]:lower() == 'لیست پلاگین' and Clang) then --after changed to moderator mode, set only sudo
-    return list_all_plugins(false, msg)
+  if matches[1] == 'الملفات' and is_sudo(msg) then --after changed to moderator mode, set only sudo
+    return list_all_plugins()
   end
-end
+
   -- Re-enable a plugin for this chat
-  if (matches[1]:lower() == 'pl' and not Clang) or (matches[1]:lower() == 'پلاگین' and Clang) then
-  if matches[2] == '+' and ((matches[4] == 'chat' and not Clang) or (matches[4] == 'گروه' and not Clang)) then
-      if is_mod(msg) then
-    local receiver = msg.chat_id_
-    local plugin = matches[3]
+  if matches[1] == 'تفعيل ملف' and matches[3] == 'chat' then
+    local receiver = get_receiver(msg)
+    local plugin = matches[2]
     print("enable "..plugin..' on this chat')
-    return reenable_plugin_on_chat(receiver, plugin, msg)
+    return reenable_plugin_on_chat(receiver, plugin)
   end
-    end
 
   -- Enable a plugin
-  if matches[2] == '+' and is_sudo(msg) then --after changed to moderator mode, set only sudo
-    local plugin_name = matches[3]
-    print("enable: "..matches[3])
-    return enable_plugin(plugin_name, msg)
+  if matches[1] == 'تفعيل ملف' and is_sudo(msg) then --after changed to moderator mode, set only sudo
+    local plugin_name = matches[2]
+    print("enable: "..matches[2])
+    return enable_plugin(plugin_name)
   end
+
   -- Disable a plugin on a chat
-  if matches[2] == '-' and ((matches[4] == 'chat' and not Clang) or (matches[4] == 'گروه' and not Clang)) then
-      if is_mod(msg) then
-    local plugin = matches[3]
-    local receiver = msg.chat_id_
+  if matches[1] == 'تعطيل ملف' and matches[3] == 'chat' then
+    local plugin = matches[2]
+    local receiver = get_receiver(msg)
     print("disable "..plugin..' on this chat')
-    return disable_plugin_on_chat(receiver, plugin, msg)
+    return disable_plugin_on_chat(receiver, plugin)
   end
-    end
+
   -- Disable a plugin
-  if matches[2] == '-' and is_sudo(msg) then --after changed to moderator mode, set only sudo
-    if matches[3] == 'plugins' then
-		return 'This plugin can\'t be disabled'
+  if matches[1] == 'تعطيل ملف' and is_sudo(msg) then --after changed to moderator mode, set only sudo
+    if matches[2] == 'plugins' then
+    	return 'This plugin can\'t be disabled'
     end
-    print("disable: "..matches[3])
-    return disable_plugin(matches[3], msg)
+    print("disable: "..matches[2])
+    return disable_plugin(matches[2])
   end
 
   -- Reload all the plugins!
-  if matches[2] == '*' and is_sudo(msg) then --after changed to moderator mode, set only sudo
-    return reload_plugins(true, msg)
-  end
-  end
-  if (matches[1]:lower() == 'reload' and not Clang) or (matches[1]:lower() == 'بارگذاری' and Clang) and is_sudo(msg) then --after changed to moderator mode, set only sudo
-    return reload_plugins(true, msg)
+  if matches[1] == 'الملفات المفعله' and is_sudo(msg) then --after changed to moderator mode, set only sudo
+    return reload_plugins(true)
   end
 end
 
@@ -218,35 +208,25 @@ return {
   description = "Plugin to manage other plugins. Enable, disable or reload.", 
   usage = {
       moderator = {
-          "!pl - [plugin] chat : disable plugin only this chat.",
-          "!pl + [plugin] chat : enable plugin only this chat.",
+          "!plugins disable [plugin] chat : disable plugin only this chat.",
+          "!plugins enable [plugin] chat : enable plugin only this chat.",
           },
       sudo = {
-          "!plist : list all plugins.",
-          "!pl + [plugin] : enable plugin.",
-          "!pl - [plugin] : disable plugin.",
-          "!pl * : reloads all plugins." },
+          "!plugins : list all plugins.",
+          "!plugins enable [plugin] : enable plugin.",
+          "!plugins disable [plugin] : disable plugin.",
+          "!plugins reload : reloads all plugins." },
           },
   patterns = {
-    "^[!/#]([Pp]list)$",
-    "^[!/#]([Pp]l) (+) ([%w_%.%-]+)$",
-    "^[!/#]([Pp]l) (-) ([%w_%.%-]+)$",
-    "^[!/#]([Pp]l) (+) ([%w_%.%-]+) (chat)",
-    "^[!/#]([Pp]l) (-) ([%w_%.%-]+) (chat)",
-    "^[!/#]([Pp]l) (*)$",
-    "^[!/#]([Rr]eload)$",
-    "^(لیست پلاگین)$",
-    "^(پلاگین) (+) ([%w_%.%-]+)$",
-    "^(پلاگین) (-) ([%w_%.%-]+)$",
-    "^(پلاگین) (+) ([%w_%.%-]+) (گروه)",
-    "^(پلاگین) (-) ([%w_%.%-]+) (گروه)",
-    "^(پلاگین) (*)$",
-    "^(بارگذاری)$",
-    },
+    "^الملفات$",
+    "^(تفعيل ملف) ([%w_%.%-]+)$",
+    "^(تعطيل ملف) ([%w_%.%-]+)$",
+    "^(تفعيل ملف) ([%w_%.%-]+) (chat)",
+    "^(تعطيل ملف) ([%w_%.%-]+) (chat)",
+    "^(الملفات المفعله)$" },
   run = run,
   moderated = true, -- set to moderator mode
-  privileged = true
+  --privileged = true
 }
 
 end
-
