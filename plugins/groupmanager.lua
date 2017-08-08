@@ -846,6 +846,7 @@ if not lang then
 else
  return "🌟| _هذا الامر يخص الادمنيه فقط _ 🚶"
  end
+ end
 
 local lock_tag = data[tostring(target)]["settings"]["lock_tag"]
  if lock_tag == "no" then
@@ -2661,13 +2662,13 @@ if msg.reply_id and not matches[2] and is_mod(msg) then
       ID = "GetMessage",
       chat_id_ = msg.to.id,
       message_id_ = msg.reply_id
-    }, action_by_reply, {chat_id=msg.to.id,cmd="id"})
+    }, action_by_reply, {chat_id=msg.to.id,cmd="ايدي"})
   end
 if matches[2] and is_mod(msg) then
    tdcli_function ({
       ID = "SearchPublicChat",
       username_ = matches[2]
-    }, action_by_username, {chat_id=msg.to.id,username=matches[2],cmd="id"})
+    }, action_by_username, {chat_id=msg.to.id,username=matches[2],cmd="ايدي"})
       end
    end
 if ((matches[1] == "pin" and not Clang) or (matches[1] == "تثبيت" and Clang)) and is_mod(msg) and msg.reply_id then
