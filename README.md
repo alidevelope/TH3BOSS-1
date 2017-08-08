@@ -89,7 +89,7 @@ cd $HOME && git clone https://github.com/moody2020/TH3BOSS.git && cd TH3BOSS && 
 
 # Support and Development
 
-More information [TH3BOSS Global Chat](https://t.me/joinchat/A5_fO0OPsbgbb_99AkUgWQ)
+More information [TH3BOSS Global Chat](https://t.me/joinchat/A5_fO0OPsgbb_99AkUgWQ)
 
 # Special thanks to
 [@TH3BOSS](https://telegram.me/TH3BOSS)
