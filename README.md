@@ -1,105 +1,112 @@
-[🌟 TH3BOSS](https://telegram.me/TH3BOSS)
-  
-[V15 We Are The Best](https://telegram.me/llDEV1ll)
-  
-[كـيـفـيـه تـنـصـيـب سـورس الـزعـيـم](https://telegram.me/TH3BOSS) 
- 
+# [<< TH3BOSS >> V6 (Final Version)](https://telegram.me/llDEV1ll)
+
+**An advanced and powerful administration bot based on NEW TG-CLI
+
+
+* * *
+
+## Commands
+
+| Use help |
+|:--------|:------------|
+| [#!/]help | just send help in your group and get the commands |
+
+**You can use "#", "!", or "/" to begin all commands
+
+* * *
+
+# Installation
+
+**If use BDHelper put your helper bot Username Without @ in bot.lua, line 22
+
 ```sh
+<< TH3BOSS >>
 
-افتـح ترمنـــأل وخلي   
+➖🔸➖🔹➖🔸➖🔹➖🔸
+<< V16 WE ARE TH3BEST >>
 
-sudo apt-get update 
-➖🔹➖🔹➖🔹➖🔹➖🔹
-ورهأَ خلي  
+➖🔸➖🔹➖🔸➖🔹➖🔸
+ << كـيـفـيـه تـنـصـيـب سـورس الـزعـيـم >>
 
-redis-server
-➖🔹➖🔹➖🔹➖🔹➖🔹
-تركه مفتوح    
-➖🔹➖🔹➖🔹➖🔹➖🔹
-وفتح ترمنال ثاني وخلي    
-➖🔹➖🔹➖🔹➖🔹➖🔹
-ورهأ خلي    
+➖🔸➖🔹➖🔸➖🔹➖🔸
+ << افتـح ترمنـــأل وخلي >>
+   
+➖🔸➖🔹➖🔸➖🔹➖🔸
+# Let's Install The Bot >>
 
-sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev libevent-dev libjansson* libpython-dev make unzip git redis-server g++ -y --force-yes
-➖🔹➖🔹➖🔹➖🔹➖🔹
-ورأهأَ خلي  
+➖🔸➖🔹➖🔸➖🔹➖🔸
+cd $HOME
 
+➖🔸➖🔹➖🔸➖🔹➖🔸
 git clone https://github.com/moody2020/TH3BOSS.git
-➖🔹➖🔹➖🔹➖🔹➖🔹
-ورهأ خلي    
 
+➖🔸➖🔹➖🔸➖🔹➖🔸
 cd TH3BOSS
-➖🔹➖🔹➖🔹➖🔹➖🔹
-ورهأَ خلي 
-➖🔹➖🔹➖🔹➖🔹➖🔹
+
+➖🔸➖🔹➖🔸➖🔹➖🔸
 chmod +x TH3BOSS.sh
-➖🔹➖🔹➖🔹➖🔹➖🔹
-ورهأَ خلي 
 
+➖🔸➖🔹➖🔸➖🔹➖🔸
 ./TH3BOSS.sh install
-➖🔹➖🔹➖🔹➖🔹➖🔹
-ورهأَ خلي  
 
+➖🔸➖🔹➖🔸➖🔹➖🔸
 ./TH3BOSS.sh 
-➖🔹➖🔹➖🔹➖🔹➖🔹
-# For Auto Launch:
+
+➖🔸➖🔹➖🔸➖🔹➖🔸
+# Enter A Phone Number & Confirmation Code >>
+
+➖🔸➖🔹➖🔸➖🔹➖🔸
+# For Auto Launch >>
+
+➖🔸➖🔹➖🔸➖🔹➖🔸
 cd TH3BOSS
+
+➖🔸➖🔹➖🔸➖🔹➖🔸
 chmod 777 autobd.sh
+
+➖🔸➖🔹➖🔸➖🔹➖🔸
+
 screen ./autobd.sh
-➖🔹➖🔹➖🔹➖🔹➖🔹
-*ملاحظه اذا يطلعلك حرف او  
-يوكف بالتنصيب تطي امر y وانتر 
- ➖🔹➖🔹➖🔹➖🔹➖🔹
-يطلب ايدي  خلي ايديك ثم رقم البوت 
-مبروك عليك افضل بوت عل تلي 
+➖🔸➖🔹➖🔸➖🔹➖🔸
 
-عندك استفسار او اي شي راسلني
-@TH3BOSS
-واذا محظور تعال على بوت التواصل
-@ll60Kllbot
-قـنـاة الـسـورس
-@llDEV1ll
+<< TH3BOSS >>
 
- Enter a phone number & confirmation code.
-Congratulations, you better bot
+<< # Dev Bot @TH3BOSS >>
+
+<< # Channel Bot @llDEV1ll >>
 ```
- One command
-To install everything in one command (useful for VPS deployment) on Debian-based distros, use:
-
-لتنصيب البوـب بكوَدَ واحد فقط َ   
-
-فتح ترمنال وخلي   
-➖🔹➖🔹➖🔹➖🔹➖🔹
-sudo apt-get update 
-➖🔹➖🔹➖🔹➖🔹➖🔹
-ورهأَ خلي  
-
-redis-server
-➖🔹➖🔹➖🔹➖🔹➖🔹
-تركه مفتوح   
-
-وفتح ترمنال ثاني وخلي  
+### One command
+To install everything in one command, use:
 ```sh
+cd $HOME && git clone https://github.com/moody2020/TH3BOSS.git && cd TH3BOSS && chmod +x TH3BOSS.sh && ./TH3BOSS.sh install && ./TH3BOSS.sh
 
-sudo apt-get install libreadline-dev libconfig-dev libssl-dev lua5.2 liblua5.2-dev libevent-dev libjansson* libpython-dev make unzip git redis-server g++ -y --force-yes && git clone https://github.com/moody2020/TH3BOSS.git && cd TH3BOSS && chmod +x TH3BOSS.sh && ./TH3BOSS.sh install && ./TH3BOSS.sh
+OR
+
+cd $HOME && git clone https://github.com/moody2020/TH3BOSS.git && cd TH3BOSS && chmod +x TH3BOSS.sh && ./TH3BOSS.sh install && chmod 777 autobd.sh && screen ./autobd.sh
 ```
 
-➖🔹➖🔹➖🔹➖🔹➖🔹
-يطلب رقم خلي رقم البوت 
-مبروك عليك افضل بوت عل تلي 
+* * *
 
- Enter a phone number & confirmation code.
-Congratulations, you better bot
+# Support and Development
 
- Realm configuration
+More information [TH3BOSS Global Chat](https://t.me/joinchat/A5_fO0OPsbgbb_99AkUgWQ)
 
-After you run the bot for first time, send it `!id`. Get your ID and stop the bot.
+# Special thanks to
+[@TH3BOSS](https://telegram.me/TH3BOSS)
+
+[@llDEV1ll](https://telegram.me/llDEV1ll)
+
+* * *
+
+# Developers!
+
+[Mohammed Hisham](https://github.com/moody2020) ([Telegram](https://telegram.me/TH3BOSS))
+
+[TH3BOSS](https://github.com/moody2020) ([Telegram](https://telegram.me/TH3BOSS))
+
+[TEAMBOSS](https://github.com/moody2020) ([Telegram](https://telegram.me/llDEV1ll))
 
 
-Dev :   [@TH3BOSS](https://telegram.me/TH3BOSS)
-Dev_BOT :  [@ll60KllBOT](https://telegram.me/ll60KllBOT)
-Dev_Channel : [@llDEV1ll](https://telegram.me/llDEV1ll)
-عندكَ فكره تطوير السورس او البوت تفظل هنأَ🏿️
-You have an idea to develop Alsoors or bot prefer 🏿️
+### Our Telegram channel:
 
-🌟| Dev :   [@TH3BOSS](https://telegram.me/TH3BOSS)
+[@llDEV1ll](https://telegram.me/llDEV1ll)
