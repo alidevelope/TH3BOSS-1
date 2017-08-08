@@ -68,7 +68,7 @@ function th3boss() {
 	white "     >>>>                       🌟| We Are Programmer                               "
 	white "     >>>>                       🌟| We Are The Best                                 "
 	  red "     >>>>                       🌟| We Are Family                                   "
-	  red "     >>>>                       🌟| @lldev1ll                                       "
+	  red "     >>>>                       🌟| @llDEV1ll                                       "
 	echo -e "\e[0m"
 }
 
